@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Gestao Infetados</string>
+
+    <string-array name="seccao">
+        <item>Médico</item>
+        <item>Enfermeiro</item>
+        <item>Técnico de Diagnóstico e Terapeutica</item>
+    </string-array>
 </resources>
