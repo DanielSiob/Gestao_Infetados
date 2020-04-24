@@ -9,7 +9,7 @@
     tools:context=".Add_Professional_Data">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textViewNameProfessional"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Name:"
@@ -26,7 +26,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textViewDateOfBirthProfessional"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Date of Birth"
@@ -43,7 +43,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/textViewWorkingSectionProfessional"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Working Section"
