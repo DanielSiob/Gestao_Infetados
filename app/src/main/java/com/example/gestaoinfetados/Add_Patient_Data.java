@@ -15,6 +15,8 @@ import java.util.Calendar;
 
 public class Add_Patient_Data extends AppCompatActivity {
 
+    private static final String TAG = "Add_Patient_Data";
+
     private TextView mDisplayDate;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
 
