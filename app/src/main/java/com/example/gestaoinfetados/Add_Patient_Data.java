@@ -25,7 +25,7 @@ public class Add_Patient_Data extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add__patient__data);
 
-        mDisplayDate = (TextView) findViewById(R.id.TVDate);
+        mDisplayDate = (TextView) findViewById(R.id.ButtonDateOfBirthPatient);
 
         mDisplayDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,8 +46,11 @@ public class Add_Patient_Data extends AppCompatActivity {
 
         mDateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
-            public void onDateSet(DatePicker datePicker, int i, int i1, int i2){
-                Log.d(TAG, "onDateSet: " + i + "/" + i1 + "/" + i2);
+            public void onDateSet(DatePicker datePicker, int ano, int mes, int dia){
+                mes = mes+1;
+                Log.d(TAG, "onDateSet: dd/mm/aaaa" + dia + "/" + mes + "/" + ano);
+                String date = dia + "/" + mes + "/" + ano;
+                mDisplayDate.setText(date);
             }
         };
     }

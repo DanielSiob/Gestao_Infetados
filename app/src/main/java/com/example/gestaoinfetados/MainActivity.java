@@ -17,6 +17,11 @@ public class MainActivity extends AppCompatActivity{
         startActivity(intent);
     }
 
+    public void goToActivity_Add_Patient_Data (View view){
+        Intent intent = new Intent (this, Add_Patient_Data.class);
+        startActivity(intent);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

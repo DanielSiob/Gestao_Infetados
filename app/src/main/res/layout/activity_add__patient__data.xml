@@ -31,5 +31,12 @@
             android:text="Date of Birth:"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
+        <Button
+            android:id="@+id/ButtonDateOfBirthPatient"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Click here to enter Date" />
+
     </com.google.android.material.textfield.TextInputLayout>
 </LinearLayout>
