@@ -8,6 +8,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
 
@@ -17,41 +18,36 @@ public class Add_Patient_Data extends AppCompatActivity {
 
     private static final String TAG = "Add_Patient_Data";
 
-    private TextView mDisplayDate;
-    private DatePickerDialog.OnDateSetListener mDateSetListener;
+    private TextView mTV;
+    private Button mBtn;
+
+    Calendar c;
+    DatePickerDialog dpd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add__patient__data);
 
-        mDisplayDate = (TextView) findViewById(R.id.ButtonDateOfBirthPatient);
+        mTV = (TextView) findViewById(R.id.TextViewPickDatePatient);
+        mBtn = (Button) findViewById(R.id.btnPickDatePatient);
 
-        mDisplayDate.setOnClickListener(new View.OnClickListener() {
+        mBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Calendar cal = Calendar.getInstance();
-                int ano = cal.get(Calendar.YEAR);
-                int mes = cal.get(Calendar.MONTH);
-                int dia = cal.get(Calendar.DAY_OF_MONTH);
+                c = Calendar.getInstance();
+                int ano = c.get(Calendar.YEAR);
+                int mes = c.get(Calendar.MONTH);
+                int dia = c.get(Calendar.DAY_OF_MONTH);
 
-                DatePickerDialog dialog = new DatePickerDialog( Add_Patient_Data.this,
-                        android.R.style.Widget_Holo_ActionBar_Solid,
-                        mDateSetListener,
-                        ano,mes,dia);
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                dialog.show();
+                dpd = new DatePickerDialog(Add_Patient_Data.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                        mTV.setText(dayOfMonth + "/" + (month+1) + "/" + year);
+                    }
+                }, dia, mes, ano);
+                dpd.show();
             }
         });
-
-        mDateSetListener = new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker datePicker, int ano, int mes, int dia){
-                mes = mes+1;
-                Log.d(TAG, "onDateSet: dd/mm/aaaa" + dia + "/" + mes + "/" + ano);
-                String date = dia + "/" + mes + "/" + ano;
-                mDisplayDate.setText(date);
-            }
-        };
     }
 }
