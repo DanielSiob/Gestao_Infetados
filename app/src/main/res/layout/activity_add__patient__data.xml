@@ -15,35 +15,31 @@
         android:text="Name:"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
-    <com.google.android.material.textfield.TextInputLayout
+
+
+    <com.google.android.material.textfield.TextInputEditText
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:hint="Insert Name" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Insert Name" />
+    <TextView
+        android:id="@+id/TVDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date of Birth:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
-        <TextView
-            android:id="@+id/TVDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Date of Birth:"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+    <Button
+        android:id="@+id/btnPickDatePatient"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pick Date" />
 
-        <Button
-            android:id="@+id/btnPickDatePatient"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Pick Date"
-            />
+    <TextView
+        android:id="@+id/TextViewPickDatePatient"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date" />
 
-        <TextView
-            android:id="@+id/TextViewPickDatePatient"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Date"
-            />
 
-    </com.google.android.material.textfield.TextInputLayout>
 </LinearLayout>
