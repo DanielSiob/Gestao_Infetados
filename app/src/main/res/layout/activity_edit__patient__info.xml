@@ -9,11 +9,11 @@
 
 
     <TextView
-        android:id="@+id/TVEntradaHospitalar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Date of Hospital Admission:"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+    android:id="@+id/TVEntradaHospitalar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Date of Hospital Admission:"
+    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
     <Button
         android:id="@+id/btnPickDateEntradaHospitalar"
@@ -26,5 +26,55 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Date"/>
+
+    <TextView
+        android:id="@+id/TVAltaHospitalar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Date of Hospital Discharge:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    <Button
+        android:id="@+id/btnPickDateAltaHospitalar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pick Date"/>
+
+    <TextView
+        android:id="@+id/TextViewPickDateAltaHospitalar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date"/>
+
+    <TextView
+        android:id="@+id/TVDataObito"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Date of Death:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    <Button
+        android:id="@+id/btnPickDateDataObito"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pick Date"/>
+
+    <TextView
+        android:id="@+id/TextViewPickDateDataObito"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date"/>
+
+    <TextView
+        android:id="@+id/textViewSintomas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Symptoms"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    <Spinner
+        android:id="@+id/spinner2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></Spinner>
 
 </LinearLayout>
