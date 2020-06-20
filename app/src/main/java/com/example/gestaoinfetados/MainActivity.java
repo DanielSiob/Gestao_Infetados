@@ -22,6 +22,11 @@ public class MainActivity extends AppCompatActivity{
         startActivity(intent);
     }
 
+    public void goToActivity_Edit_Patient_Info (View view){
+        Intent intent = new Intent (this, Edit_Patient_Info.class);
+        startActivity(intent);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
