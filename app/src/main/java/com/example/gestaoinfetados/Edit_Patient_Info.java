@@ -12,7 +12,7 @@ import java.util.Calendar;
 
 public class Edit_Patient_Info extends AppCompatActivity {
 
-    private static final String TAG = "Edit_Patient_Data";
+    private static final String TAG = "Edit_Patient_Info";
 
     private TextView mTVEH;
     private Button mBtnEH;
@@ -20,9 +20,10 @@ public class Edit_Patient_Info extends AppCompatActivity {
     Calendar c;
     DatePickerDialog dpd;
 
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit__patient__data);
+        setContentView(R.layout.activity_edit__patient__info);
 
         mTVEH = (TextView) findViewById(R.id.TextViewPickDateEntradaHospitalar);
         mBtnEH = (Button) findViewById(R.id.btnPickDateEntradaHospitalar);
@@ -43,6 +44,7 @@ public class Edit_Patient_Info extends AppCompatActivity {
                 }, dia, mes, ano);
                 dpd.show();
             }
+
         });
     }
 }

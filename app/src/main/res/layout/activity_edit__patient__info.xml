@@ -9,7 +9,7 @@
 
 
     <TextView
-        android:id="@+id/textViewEntradaHospitalar"
+        android:id="@+id/TVEntradaHospitalar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Date of Hospital Admission:"
@@ -19,13 +19,12 @@
         android:id="@+id/btnPickDateEntradaHospitalar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Pick Date"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+        android:text="Pick Date"/>
 
     <TextView
         android:id="@+id/TextViewPickDateEntradaHospitalar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Date"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+        android:text="Date"/>
+
 </LinearLayout>
