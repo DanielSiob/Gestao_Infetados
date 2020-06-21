@@ -13,6 +13,7 @@
         android:id="@+id/TVeh"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="25dp"
         android:text="Date of Hospital Entry:"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
@@ -26,13 +27,15 @@
         android:id="@+id/TextViewPickDateEntHosp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Date"/>
+        android:textSize="20dp"
+        android:text=""/>
 
     <TextView
         android:id="@+id/TVah"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Date of Hospital Discharge:"
+        android:textSize="25dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
     <Button
@@ -45,12 +48,14 @@
         android:id="@+id/TVAltaHosp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Date"/>
+        android:textSize="20dp"
+        android:text=""/>
 
     <TextView
         android:id="@+id/TVDataObi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="25dp"
         android:text="Date of Death:"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
@@ -64,18 +69,27 @@
         android:id="@+id/TextViewPickDateDataObi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Date"/>
+        android:textSize="20dp"
+        android:text=""/>
 
     <TextView
         android:id="@+id/textViewSin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Symptoms"
+        android:textSize="25dp"
+        android:text="Symptoms:"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
     <Spinner
         android:id="@+id/spinner2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"></Spinner>
+
+    <Button
+        android:id="@+id/btnSaiEditPatInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:text="Back" />
 
 </LinearLayout>

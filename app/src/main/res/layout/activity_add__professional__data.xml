@@ -12,6 +12,7 @@
         android:id="@+id/textViewNameProfessional"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="25dp"
         android:text="Name:"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
@@ -29,29 +30,42 @@
         android:id="@+id/textViewDateOfBirthProfessional"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Date of Birth"
+        android:textSize="25dp"
+        android:text="Date of Birth:"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <Button
+        android:id="@+id/btnPickDateOfBirthProf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pick Date"/>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Insert Date of Birth" />
-    </com.google.android.material.textfield.TextInputLayout>
+    <TextView
+        android:id="@+id/TextViewPickDateOfBirthProf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:text=""/>
+
 
     <TextView
         android:id="@+id/textViewWorkingSectionProfessional"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Working Section"
+        android:textSize="25dp"
+        android:text="Working Section:"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
     <Spinner
         android:id="@+id/spinner1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"></Spinner>
+
+    <Button
+        android:id="@+id/btnSaiAddProfData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:text="Back"/>
 
 </LinearLayout>

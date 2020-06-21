@@ -2,8 +2,15 @@
     <string name="app_name">Gestao Infetados</string>
 
     <string-array name="seccao">
-        <item>Médico</item>
-        <item>Enfermeiro</item>
-        <item>Técnico de Diagnóstico e Terapeutica</item>
+        <item>Doctor</item>
+        <item>Nurse</item>
+        <item>Diagnostic and Therapeutic Technician</item>
+    </string-array>
+
+    <string-array name="sintomas">
+        <item>Cough</item>
+        <item>Shortness of Breathe</item>
+        <item>Headache</item>
+        <item>Fever</item>
     </string-array>
 </resources>

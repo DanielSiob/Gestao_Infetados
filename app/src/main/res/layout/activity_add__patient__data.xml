@@ -12,6 +12,7 @@
         android:id="@+id/textViewNamePatient"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="25dp"
         android:text="Name:"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
@@ -26,6 +27,7 @@
         android:id="@+id/TVDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="25dp"
         android:text="Date of Birth:"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
@@ -39,7 +41,15 @@
         android:id="@+id/TextViewPickDatePatient"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Date" />
+        android:textSize="20dp"
+        android:text="" />
+
+    <Button
+        android:id="@+id/btnSaiAddPatData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:text="Back"/>
 
 
 </LinearLayout>
