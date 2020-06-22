@@ -62,7 +62,7 @@
         android:layout_height="wrap_content"></Spinner>
 
     <Button
-        android:id="@+id/btnSaiAddProfData"
+        android:id="@+id/btnGuAddProfData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
