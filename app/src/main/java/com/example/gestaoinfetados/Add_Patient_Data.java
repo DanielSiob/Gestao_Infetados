@@ -8,13 +8,17 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
-public class Add_Patient_Data extends AppCompatActivity {
+public class Add_Patient_Data extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private static final String TAG = "Add_Patient_Data";
 
@@ -49,5 +53,23 @@ public class Add_Patient_Data extends AppCompatActivity {
                 dpd.show();
             }
         });
+
+        //SPINNER DO SEXO DO PACIENTE
+        Spinner spinner = findViewById(R.id.spinner3);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.sexo, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(this);
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        String text = parent.getItemAtPosition(position).toString();
+        Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }

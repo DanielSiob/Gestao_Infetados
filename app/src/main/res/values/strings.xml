@@ -13,4 +13,10 @@
         <item>Headache</item>
         <item>Fever</item>
     </string-array>
+
+    <string-array name="sexo">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+
 </resources>
