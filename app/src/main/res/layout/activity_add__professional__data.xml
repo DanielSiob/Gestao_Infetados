@@ -42,7 +42,7 @@
         android:text="Pick Date"/>
 
     <TextView
-        android:id="@+id/TextViewPickDateOfBirthProf"
+        android:id="@+id/TVBirthProf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20dp"
@@ -61,6 +61,13 @@
         android:id="@+id/spinner1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"></Spinner>
+
+    <TextView
+        android:id="@+id/TVWorkSect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:text=""/>
 
     <Button
         android:id="@+id/btnGuAddProfData"

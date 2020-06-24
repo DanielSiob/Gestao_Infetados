@@ -2,7 +2,9 @@ package com.example.gestaoinfetados;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -27,12 +29,13 @@ public class Add_Professional_Data extends AppCompatActivity  implements Adapter
     DatePickerDialog dpd;
 
 
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add__professional__data);
 
-        mTVN = (TextView)findViewById(R.id.TextViewPickDateOfBirthProf);
+        mTVN = (TextView)findViewById(R.id.TVBirthProf);
         mBtnN = (Button)findViewById(R.id.btnPickDateOfBirthProf);
 
 
@@ -61,8 +64,31 @@ public class Add_Professional_Data extends AppCompatActivity  implements Adapter
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.seccao, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(this);
+        //spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+           // @Override
+           // public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+           //     String selected = parent.getItemAtPosition(position).toString();
+         //   }
+//
+          //  @Override
+          //  public void onNothingSelected(AdapterView<?> parent) {
 
+            //}
+        //});
+
+        //String data = String.valueOf(spinner.getSelectedItem()).toString();
+
+
+
+       // TextView trabalho = (TextView)findViewById(R.id.TVWorkSect);
+        //trabalho.setText(data);
+
+
+        editName = (EditText)findViewById(R.id.nomeProf);
+        editBirthday = (EditText)findViewById(R.id.TVBirthProf);
+        editJob = (EditText)findViewById(R.id.TVWorkSect);
+        btnSaveProf = (Button)findViewById(R.id.btnGuAddProfData);
+        AddData();
     }
 
     @Override
@@ -76,4 +102,25 @@ public class Add_Professional_Data extends AppCompatActivity  implements Adapter
 
     }
 
+    //
+    DatabaseHelper myDb;
+    EditText editName, editBirthday, editJob;
+    Button btnSaveProf;
+
+
+    public void AddData(){
+        btnSaveProf.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean isInserted = myDb.insertData(editName.getText().toString(),
+                        editBirthday.getText().toString(),
+                        editJob.getText().toString());
+                if(isInserted = true){
+                    Toast.makeText(Add_Professional_Data.this, "Data Inserted", Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(Add_Professional_Data.this, "Data NOT Inserted", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+    }
 }
