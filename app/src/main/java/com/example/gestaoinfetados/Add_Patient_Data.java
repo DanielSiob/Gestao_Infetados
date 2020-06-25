@@ -16,6 +16,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 import java.util.Calendar;
 
 public class Add_Patient_Data extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
@@ -27,6 +29,10 @@ public class Add_Patient_Data extends AppCompatActivity implements AdapterView.O
 
     Calendar c;
     DatePickerDialog dpd;
+
+    TextInputEditText TIETNomePat, TIETDoeCont;
+    TextView TextViewPickDatePatient;
+    DatabaseHelper db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +66,15 @@ public class Add_Patient_Data extends AppCompatActivity implements AdapterView.O
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
+
+
+        db = new DatabaseHelper(this);
+
+        //BUSCAR ID's
+        TIETNomePat = findViewById(R.id.TIETNomePat);
+        TIETDoeCont = findViewById(R.id.TIETDoeCont);
+        TextViewPickDatePatient = findViewById(R.id.TextViewPickDatePatient);
+
     }
 
     @Override
@@ -71,5 +86,13 @@ public class Add_Patient_Data extends AppCompatActivity implements AdapterView.O
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+
+    public void saveAddPat(View view){
+        String saveNomePat = TIETNomePat.getText().toString();
+        String saveDoeCont = TIETDoeCont.getText().toString();
+        String savePickDate = TextViewPickDatePatient.getText().toString();
+
+        db.insertData(saveNomePat, saveDoeCont, savePickDate);
     }
 }

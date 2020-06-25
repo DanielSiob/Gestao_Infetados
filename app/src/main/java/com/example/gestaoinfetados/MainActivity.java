@@ -11,10 +11,6 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity{
-    //
-    DatabaseHelper myDb;
-
-
     public void goToActivity_Add_Professional_Data (View view){
         Intent intent = new Intent (this, Add_Professional_Data.class);
         startActivity(intent);
@@ -34,8 +30,6 @@ public class MainActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //
-        myDb = new DatabaseHelper(this);
     }
 
 }

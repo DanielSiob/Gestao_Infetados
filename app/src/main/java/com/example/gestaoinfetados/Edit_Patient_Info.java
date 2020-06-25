@@ -27,6 +27,9 @@ public class Edit_Patient_Info extends AppCompatActivity implements AdapterView.
     Calendar c;
     DatePickerDialog dpd;
 
+    TextView TextViewPickDateEntHosp, TVAltaHosp, TextViewPickDateDataObi, TVSin;
+    DatabaseHelper db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -108,6 +111,15 @@ public class Edit_Patient_Info extends AppCompatActivity implements AdapterView.
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
 
+
+        db = new DatabaseHelper(this);
+
+        //BUSCAR ID
+        TextViewPickDateEntHosp = findViewById(R.id.TextViewPickDateEntHosp);
+        TVAltaHosp = findViewById(R.id.TVAltaHosp);
+        TextViewPickDateDataObi = findViewById(R.id.TextViewPickDateDataObi);
+        TVSin = findViewById(R.id.TVSin);
+
     }
 
     @Override
@@ -119,5 +131,14 @@ public class Edit_Patient_Info extends AppCompatActivity implements AdapterView.
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+
+    public void saveEditPat(View view){
+        String saveDateEntHosp = TextViewPickDateEntHosp.getText().toString();
+        String saveDateAltHosp = TVAltaHosp.getText().toString();
+        String saveDateObi = TextViewPickDateDataObi.getText().toString();
+        String saveSin = TVSin.getText().toString();
+
+        db.insertData(saveDateEntHosp, saveDateAltHosp, saveDateObi, saveSin);
     }
 }

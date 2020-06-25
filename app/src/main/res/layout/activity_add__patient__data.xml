@@ -19,7 +19,7 @@
 
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/TIETNomeProf"
+        android:id="@+id/TIETNomePat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Insert Name" />
@@ -67,7 +67,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/TIETDoencasContraidas"
+        android:id="@+id/TIETDoeCont"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Insert Diseases" />

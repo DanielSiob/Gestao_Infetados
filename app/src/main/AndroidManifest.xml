@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Edit_Patient_Info"></activity>
+        <activity android:name=".RecyclerViewActivity"></activity>
+        <activity android:name=".Edit_Patient_Info" />
         <activity android:name=".Add_Patient_Data" />
         <activity android:name=".Add_Professional_Data" />
         <activity android:name=".MainActivity">

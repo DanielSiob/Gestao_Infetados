@@ -28,6 +28,11 @@ public class Add_Professional_Data extends AppCompatActivity  implements Adapter
     Calendar c;
     DatePickerDialog dpd;
 
+    EditText nomeProf;
+    TextView TVBirthProf, TVWorkSect;
+
+    DatabaseHelper db;
+
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -64,31 +69,16 @@ public class Add_Professional_Data extends AppCompatActivity  implements Adapter
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.seccao, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
-        //spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-           // @Override
-           // public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-           //     String selected = parent.getItemAtPosition(position).toString();
-         //   }
-//
-          //  @Override
-          //  public void onNothingSelected(AdapterView<?> parent) {
-
-            //}
-        //});
-
-        //String data = String.valueOf(spinner.getSelectedItem()).toString();
 
 
+        db = new DatabaseHelper(this);
 
-       // TextView trabalho = (TextView)findViewById(R.id.TVWorkSect);
-        //trabalho.setText(data);
+        //BUSCAR ID's
+        nomeProf = findViewById(R.id.nomeProf);
+        TVBirthProf = findViewById(R.id.TVBirthProf);
+        TVWorkSect = findViewById(R.id.TVWorkSect);
 
 
-        editName = (EditText)findViewById(R.id.nomeProf);
-        editBirthday = (EditText)findViewById(R.id.TVBirthProf);
-        editJob = (EditText)findViewById(R.id.TVWorkSect);
-        btnSaveProf = (Button)findViewById(R.id.btnGuAddProfData);
-        AddData();
     }
 
     @Override
@@ -102,25 +92,10 @@ public class Add_Professional_Data extends AppCompatActivity  implements Adapter
 
     }
 
-    //
-    DatabaseHelper myDb;
-    EditText editName, editBirthday, editJob;
-    Button btnSaveProf;
-
-
-    public void AddData(){
-        btnSaveProf.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                boolean isInserted = myDb.insertData(editName.getText().toString(),
-                        editBirthday.getText().toString(),
-                        editJob.getText().toString());
-                if(isInserted = true){
-                    Toast.makeText(Add_Professional_Data.this, "Data Inserted", Toast.LENGTH_LONG).show();
-                }else{
-                    Toast.makeText(Add_Professional_Data.this, "Data NOT Inserted", Toast.LENGTH_LONG).show();
-                }
-            }
-        });
+    public void saveAddProf(View view){
+        String saveNomeProf = nomeProf.getText().toString();
+        String saveBirthProf = TVBirthProf.getText().toString();
+        String saveWorkSect = TVWorkSect.getText().toString();
     }
+
 }
