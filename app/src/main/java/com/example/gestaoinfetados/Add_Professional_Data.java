@@ -96,6 +96,8 @@ public class Add_Professional_Data extends AppCompatActivity  implements Adapter
         String saveNomeProf = nomeProf.getText().toString();
         String saveBirthProf = TVBirthProf.getText().toString();
         String saveWorkSect = TVWorkSect.getText().toString();
+
+        db.insertData3(saveNomeProf, saveBirthProf, saveWorkSect);
     }
 
 }

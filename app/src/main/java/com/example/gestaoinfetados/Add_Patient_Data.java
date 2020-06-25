@@ -93,6 +93,6 @@ public class Add_Patient_Data extends AppCompatActivity implements AdapterView.O
         String saveDoeCont = TIETDoeCont.getText().toString();
         String savePickDate = TextViewPickDatePatient.getText().toString();
 
-        db.insertData(saveNomePat, saveDoeCont, savePickDate);
+        db.insertData2(saveNomePat, saveDoeCont, savePickDate);
     }
 }
