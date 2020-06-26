@@ -28,7 +28,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.MyViewHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
         Data note = notesList.get(position);
         holder.id.setText(Integer.toString(note.getId()));
         //holder.nomeProf.setText(note.getSaveNomeProf());
@@ -41,6 +41,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.MyViewHolder
         holder.TVAltaHosp.setText(note.saveDateAltHosp);
         holder.TextViewPickDateDataObi.setText(note.saveDateObi);
         holder.TVSin.setText(note.saveSin);
+
     }
 
     public NotesAdapter(Context context, List<Data> notesList){
