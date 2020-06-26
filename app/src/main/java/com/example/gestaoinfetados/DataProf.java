@@ -10,7 +10,7 @@ public class DataProf {
 
     //CRIAÇÃO DA TABELA (QUERY)
     public static final String CREATE_TABLE2 =
-            "Create Table" + "Professional" + "(" + "Id" + " INTEGER PRIMARY KEY AUTOINCREMENT,"+
+            "Create Table " + "Professional" + "(" + "Id" + " INTEGER PRIMARY KEY AUTOINCREMENT,"+
                     "Name" + "Text,"+
                     "Birthday" + "Text,"+
                     "Work Section" + "Text,"+ ")";

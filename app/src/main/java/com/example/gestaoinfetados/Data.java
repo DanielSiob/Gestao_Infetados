@@ -10,13 +10,16 @@ public class Data {
     String saveDateObi;
     String saveSin;
 
+    public Data(){
+
+    }
+
 
     //CRIAÇÃO DA TABELA (QUERY)
     public static final String CREATE_TABLE =
-            "Create Table" + "Patient" + "(" + "Id" + " INTEGER PRIMARY KEY AUTOINCREMENT,"+
+            "Create Table " + "Patient" + "(" + "Id" + " INTEGER PRIMARY KEY AUTOINCREMENT,"+
                     "Name" + "Text,"+
                     "Birthday" + "Text,"+
-                    "Genre" + "Text,"+
                     "Diseases" + "Text,"+
                     "DateEntryHospital" + "Text,"+
                     "DateDischargeHospital" + "Text,"+
@@ -31,12 +34,12 @@ public class Data {
         this.id = id;
     }
 
-    public String getSaveNomeProf() {
+    public String getSaveNomePat() {
         return saveNomePat;
     }
 
-    public void setSaveNomeProf(String saveNomeProf) {
-        this.saveNomePat = saveNomeProf;
+    public void setSaveNomePat(String saveNomeProf) {
+        this.saveNomePat = saveNomePat;
     }
 
     public String getSaveDoeCont() {

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -16,13 +17,12 @@
         android:text="Name:"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
-
-
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/TIETNomePat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Insert Name" />
+
 
     <TextView
         android:id="@+id/TVDate"
@@ -46,19 +46,6 @@
         android:text="" />
 
     <TextView
-        android:id="@+id/TVSexo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="25dp"
-        android:text="Genre:"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-    <Spinner
-        android:id="@+id/spinner3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"></Spinner>
-
-    <TextView
         android:id="@+id/TVDoencas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -72,12 +59,19 @@
         android:layout_height="wrap_content"
         android:hint="Insert Diseases" />
 
-    <Button
-        android:id="@+id/btnGuAddPatData"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:text="Save"/>
-
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_gravity="center_horizontal"
+            android:onClick="saveAddPat"
+            android:padding="5dp">
+        <Button
+            android:id="@+id/btnGuAddPatData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Save"/>
+    </LinearLayout>
 
 </LinearLayout>

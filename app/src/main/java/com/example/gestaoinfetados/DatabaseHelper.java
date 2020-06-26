@@ -2,14 +2,18 @@ package com.example.gestaoinfetados;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 99;
     private static final String DATABASE_NAME = "Patient";
     private static final int DATABASE_VERSION2 = 1;
     private static final String DATABASE_NAME2 = "Professional";
@@ -64,4 +68,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return id;
     }
 
+    public List<Data> getDataFromDB(){
+        List<Data> note = new ArrayList<>();
+        String query = "Select * From " +"Patient";
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        if(cursor.moveToFirst()){
+            do{
+                Data data = new Data();
+                data.setId(cursor.getInt(cursor.getColumnIndex("Id")));
+                data.setSaveDateAltHosp(cursor.getString(cursor.getColumnIndex("DateDischargeHospital")));
+                data.setSaveDateEntHosp(cursor.getString(cursor.getColumnIndex("DateEntryHospital")));
+                data.setSaveDateObi(cursor.getString(cursor.getColumnIndex("DateDeath")));
+                data.setSaveDoeCont(cursor.getString(cursor.getColumnIndex("Diseases")));
+                data.setSaveNomePat(cursor.getString(cursor.getColumnIndex("Name")));
+                data.setSavePickDate(cursor.getString(cursor.getColumnIndex("Birthday")));
+                data.setSaveSin(cursor.getString(cursor.getColumnIndex("Symptoms")));
+                note.add(data);
+            }while (cursor.moveToNext());
+        }
+        db.close();
+        return note;
+    }
 }

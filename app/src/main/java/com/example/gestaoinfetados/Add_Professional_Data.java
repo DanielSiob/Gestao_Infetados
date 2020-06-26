@@ -98,6 +98,8 @@ public class Add_Professional_Data extends AppCompatActivity  implements Adapter
         String saveWorkSect = TVWorkSect.getText().toString();
 
         db.insertData3(saveNomeProf, saveBirthProf, saveWorkSect);
+        Intent intent = new Intent(Add_Professional_Data.this, RecyclerViewActivity.class);
+        startActivity(intent);
     }
 
 }

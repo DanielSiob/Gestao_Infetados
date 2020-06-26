@@ -3,6 +3,7 @@ package com.example.gestaoinfetados;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -60,12 +61,6 @@ public class Add_Patient_Data extends AppCompatActivity implements AdapterView.O
             }
         });
 
-        //SPINNER DO SEXO DO PACIENTE
-        Spinner spinner = findViewById(R.id.spinner3);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.sexo, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(this);
 
 
         db = new DatabaseHelper(this);
@@ -94,5 +89,8 @@ public class Add_Patient_Data extends AppCompatActivity implements AdapterView.O
         String savePickDate = TextViewPickDatePatient.getText().toString();
 
         db.insertData2(saveNomePat, saveDoeCont, savePickDate);
+        Intent intent = new Intent(Add_Patient_Data.this, RecyclerViewActivity.class);
+        startActivity(intent);
     }
+
 }

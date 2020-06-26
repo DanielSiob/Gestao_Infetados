@@ -3,6 +3,7 @@ package com.example.gestaoinfetados;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -140,5 +141,7 @@ public class Edit_Patient_Info extends AppCompatActivity implements AdapterView.
         String saveSin = TVSin.getText().toString();
 
         db.insertData(saveDateEntHosp, saveDateAltHosp, saveDateObi, saveSin);
+        Intent intent = new Intent(Edit_Patient_Info.this, RecyclerViewActivity.class);
+        startActivity(intent);
     }
 }
