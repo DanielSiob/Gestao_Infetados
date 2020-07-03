@@ -3,7 +3,10 @@ package com.example.gestaoinfetados;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -31,9 +34,12 @@ public class Add_Patient_Data extends AppCompatActivity implements AdapterView.O
     Calendar c;
     DatePickerDialog dpd;
 
-    TextInputEditText TIETNomePat, TIETDoeCont;
+    TextInputEditText TIETNomePat, TIETDoeCont, TIETid;
     TextView TextViewPickDatePatient;
-    DatabaseHelper db;
+
+    Button _btnSave, _btnUpdate, _btnDelete;
+    SQLiteOpenHelper openHelper;
+    SQLiteDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,13 +68,35 @@ public class Add_Patient_Data extends AppCompatActivity implements AdapterView.O
         });
 
 
-
-        db = new DatabaseHelper(this);
-
         //BUSCAR ID's
         TIETNomePat = findViewById(R.id.TIETNomePat);
         TIETDoeCont = findViewById(R.id.TIETDoeCont);
         TextViewPickDatePatient = findViewById(R.id.TextViewPickDatePatient);
+        _btnSave = findViewById(R.id.btnGuAddPatData);
+        _btnUpdate = findViewById(R.id.btnUpAddPatData);
+        _btnDelete = findViewById(R.id.btnDeAddPatData);
+        openHelper = new DatabaseHelper(this);
+        _btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String nome = TIETNomePat.getText().toString();
+                String dataNas = TextViewPickDatePatient.getText().toString();
+                String doe = TIETDoeCont.getText().toString();
+                db = openHelper.getWritableDatabase();
+                insertData(nome, dataNas, doe);
+                Toast.makeText(getApplicationContext(), "Data Added", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        _btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                db = openHelper.getWritableDatabase();
+                String id = TIETid.getText().toString();
+                deleteData(id);
+                Toast.makeText(getApplicationContext(), "Data Deleted", Toast.LENGTH_LONG).show();
+            }
+        });
 
     }
 
@@ -83,14 +111,15 @@ public class Add_Patient_Data extends AppCompatActivity implements AdapterView.O
 
     }
 
-    public void saveAddPat(View view){
-        String saveNomePat = TIETNomePat.getText().toString();
-        String saveDoeCont = TIETDoeCont.getText().toString();
-        String savePickDate = TextViewPickDatePatient.getText().toString();
-
-        db.insertData2(saveNomePat, saveDoeCont, savePickDate);
-        Intent intent = new Intent(Add_Patient_Data.this, RecyclerViewActivity.class);
-        startActivity(intent);
+    public void insertData(String nome, String dataNas, String doe){
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(DatabaseHelper.COL_2, nome);
+        contentValues.put(DatabaseHelper.COL_3, dataNas);
+        contentValues.put(DatabaseHelper.COL_4, doe);
+        long id = db.insert(DatabaseHelper.TABLE_NAME, null, contentValues);
     }
 
+    public boolean deleteData(String id){
+        return db.delete(DatabaseHelper.TABLE_NAME, DatabaseHelper.COL_1 + "=?", new String[]{id})>0;
+    }
 }

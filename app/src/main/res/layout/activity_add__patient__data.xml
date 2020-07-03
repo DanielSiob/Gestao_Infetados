@@ -9,6 +9,12 @@
     android:orientation="vertical"
     tools:context=".Add_Patient_Data">
 
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/TIETid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Insert ID" />
+
     <TextView
         android:id="@+id/textViewNamePatient"
         android:layout_width="match_parent"
@@ -72,6 +78,36 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="Save"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_gravity="center_horizontal"
+        android:onClick="updateAddPat"
+        android:padding="5dp">
+        <Button
+            android:id="@+id/btnUpAddPatData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Update"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_gravity="center_horizontal"
+        android:onClick="deleteAddPat"
+        android:padding="5dp">
+        <Button
+            android:id="@+id/btnDeAddPatData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Delete"/>
     </LinearLayout>
 
 </LinearLayout>

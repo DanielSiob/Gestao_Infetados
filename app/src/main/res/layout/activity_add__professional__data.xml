@@ -77,11 +77,41 @@
         android:onClick="saveAddProf"
         android:padding="5dp">
         <Button
-            android:id="@+id/btnGuAddPatData"
+            android:id="@+id/btnGuAddProfData"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="Save"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_gravity="center_horizontal"
+        android:onClick="updateAddProf"
+        android:padding="5dp">
+        <Button
+            android:id="@+id/btnUpAddProfData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Update"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_gravity="center_horizontal"
+        android:onClick="deleteAddProf"
+        android:padding="5dp">
+        <Button
+            android:id="@+id/btnDeAddProfData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Delete"/>
     </LinearLayout>
 
 </LinearLayout>

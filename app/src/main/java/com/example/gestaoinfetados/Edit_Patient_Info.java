@@ -3,8 +3,12 @@ package com.example.gestaoinfetados;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -13,6 +17,8 @@ import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.Calendar;
 
@@ -28,8 +34,12 @@ public class Edit_Patient_Info extends AppCompatActivity implements AdapterView.
     Calendar c;
     DatePickerDialog dpd;
 
+    TextInputEditText TIETid;
     TextView TextViewPickDateEntHosp, TVAltaHosp, TextViewPickDateDataObi, TVSin;
-    DatabaseHelper db;
+
+    Button _btnSave, _btnUpdate, _btnDelete;
+    SQLiteOpenHelper openHelper;
+    SQLiteDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,13 +123,28 @@ public class Edit_Patient_Info extends AppCompatActivity implements AdapterView.
         spinner.setOnItemSelectedListener(this);
 
 
-        db = new DatabaseHelper(this);
 
         //BUSCAR ID
         TextViewPickDateEntHosp = findViewById(R.id.TextViewPickDateEntHosp);
         TVAltaHosp = findViewById(R.id.TVAltaHosp);
         TextViewPickDateDataObi = findViewById(R.id.TextViewPickDateDataObi);
         TVSin = findViewById(R.id.TVSin);
+        _btnSave = findViewById(R.id.btnGuEditPatData);
+        _btnUpdate = findViewById(R.id.btnUpEditPatData);
+        _btnDelete = findViewById(R.id.btnDeEditPatData);
+        openHelper = new DatabaseHelper(this);
+        _btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String deh = TextViewPickDateEntHosp.getText().toString();
+                String dah = TVAltaHosp.getText().toString();
+                String dob = TextViewPickDateDataObi.getText().toString();
+                String sin = TVSin.getText().toString();
+                db = openHelper.getWritableDatabase();
+                insertData(deh, dah, dob, sin);
+                Toast.makeText(getApplicationContext(), "Data Added", Toast.LENGTH_LONG).show();
+            }
+        });
 
     }
 
@@ -134,14 +159,12 @@ public class Edit_Patient_Info extends AppCompatActivity implements AdapterView.
 
     }
 
-    public void saveEditPat(View view){
-        String saveDateEntHosp = TextViewPickDateEntHosp.getText().toString();
-        String saveDateAltHosp = TVAltaHosp.getText().toString();
-        String saveDateObi = TextViewPickDateDataObi.getText().toString();
-        String saveSin = TVSin.getText().toString();
-
-        db.insertData(saveDateEntHosp, saveDateAltHosp, saveDateObi, saveSin);
-        Intent intent = new Intent(Edit_Patient_Info.this, RecyclerViewActivity.class);
-        startActivity(intent);
+    public void insertData(String deh, String dah, String dob, String sin){
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(DatabaseHelper.COL_5, deh);
+        contentValues.put(DatabaseHelper.COL_6, dah);
+        contentValues.put(DatabaseHelper.COL_7, dob);
+        contentValues.put(DatabaseHelper.COL_8, sin);
+        long id = db.insert(DatabaseHelper.TABLE_NAME, null, contentValues);
     }
 }

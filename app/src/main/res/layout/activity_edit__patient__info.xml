@@ -9,6 +9,13 @@
     tools:context=".Edit_Patient_Info">
 
 
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/TIETid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Insert ID" />
+
     <TextView
         android:id="@+id/TVeh"
         android:layout_width="match_parent"
@@ -100,10 +107,40 @@
         android:onClick="saveEditPat"
         android:padding="5dp">
         <Button
-            android:id="@+id/btnGuAddPatData"
+            android:id="@+id/btnGuEditPatData"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="Save"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_gravity="center_horizontal"
+        android:onClick="updateEditPat"
+        android:padding="5dp">
+        <Button
+            android:id="@+id/btnUpEditPatData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Update"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_gravity="center_horizontal"
+        android:onClick="deleteEditPat"
+        android:padding="5dp">
+        <Button
+            android:id="@+id/btnDeEditPatData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Delete"/>
     </LinearLayout>
 </LinearLayout>

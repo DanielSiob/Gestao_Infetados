@@ -31,8 +31,6 @@ public class Add_Professional_Data extends AppCompatActivity  implements Adapter
     EditText nomeProf;
     TextView TVBirthProf, TVWorkSect;
 
-    DatabaseHelper db;
-
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -70,9 +68,6 @@ public class Add_Professional_Data extends AppCompatActivity  implements Adapter
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
-
-        db = new DatabaseHelper(this);
-
         //BUSCAR ID's
         nomeProf = findViewById(R.id.nomeProf);
         TVBirthProf = findViewById(R.id.TVBirthProf);
@@ -91,15 +86,4 @@ public class Add_Professional_Data extends AppCompatActivity  implements Adapter
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
-
-    public void saveAddProf(View view){
-        String saveNomeProf = nomeProf.getText().toString();
-        String saveBirthProf = TVBirthProf.getText().toString();
-        String saveWorkSect = TVWorkSect.getText().toString();
-
-        db.insertData3(saveNomeProf, saveBirthProf, saveWorkSect);
-        Intent intent = new Intent(Add_Professional_Data.this, RecyclerViewActivity.class);
-        startActivity(intent);
-    }
-
 }
