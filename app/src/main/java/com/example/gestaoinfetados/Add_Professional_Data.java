@@ -31,6 +31,8 @@ public class Add_Professional_Data extends AppCompatActivity  implements Adapter
     EditText nomeProf;
     TextView TVBirthProf, TVWorkSect;
 
+    Spinner spinner;
+
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -63,10 +65,11 @@ public class Add_Professional_Data extends AppCompatActivity  implements Adapter
 
 
         //SPINNER DA SECÇÃO DOS TRABALHOS DOS PROFISSIONAIS
-        Spinner spinner = findViewById(R.id.spinner1);
+        spinner = (Spinner) findViewById(R.id.spinner1);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.seccao, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(this);
 
         //BUSCAR ID's
         nomeProf = findViewById(R.id.nomeProf);
@@ -76,10 +79,12 @@ public class Add_Professional_Data extends AppCompatActivity  implements Adapter
 
     }
 
+    //CONTINUAÇÃO DO SPINNER
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String text = parent.getItemAtPosition(position).toString();
         Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT).show();
+        TVWorkSect.setText(spinner.getSelectedItem().toString());
     }
 
     @Override

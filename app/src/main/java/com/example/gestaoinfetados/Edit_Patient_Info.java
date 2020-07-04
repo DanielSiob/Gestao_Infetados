@@ -34,6 +34,8 @@ public class Edit_Patient_Info extends AppCompatActivity implements AdapterView.
     Calendar c;
     DatePickerDialog dpd;
 
+    Spinner spinner;
+
     TextInputEditText TIETid;
     TextView TextViewPickDateEntHosp, TVAltaHosp, TextViewPickDateDataObi, TVSin;
 
@@ -54,6 +56,7 @@ public class Edit_Patient_Info extends AppCompatActivity implements AdapterView.
 
         mTVObi = (TextView)findViewById(R.id.TextViewPickDateDataObi);
         mBtnObi = (Button)findViewById(R.id.btnPickDateDataObi);
+
 
         //ESCOLHER DATA PARA ENTRADA HOSPITALAR
 
@@ -116,7 +119,8 @@ public class Edit_Patient_Info extends AppCompatActivity implements AdapterView.
 
         //SPINNER DOS SINTOMAS
 
-        Spinner spinner = findViewById(R.id.spinner2);
+
+        spinner = (Spinner) findViewById(R.id.spinner2);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.sintomas, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
@@ -148,10 +152,12 @@ public class Edit_Patient_Info extends AppCompatActivity implements AdapterView.
 
     }
 
+    //CONTINUAÇÃO DO SPINNER
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String text = parent.getItemAtPosition(position).toString();
         Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT).show();
+        TVSin.setText(spinner.getSelectedItem().toString());
     }
 
     @Override
