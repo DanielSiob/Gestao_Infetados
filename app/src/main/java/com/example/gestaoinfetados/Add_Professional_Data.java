@@ -4,7 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -32,6 +35,10 @@ public class Add_Professional_Data extends AppCompatActivity  implements Adapter
     TextView TVBirthProf, TVWorkSect;
 
     Spinner spinner;
+
+    Button _btnSave, _btnUpdate, _btnDelete;
+    SQLiteOpenHelper openHelper;
+    SQLiteDatabase db;
 
 
     @SuppressLint("WrongViewCast")
@@ -75,11 +82,25 @@ public class Add_Professional_Data extends AppCompatActivity  implements Adapter
         nomeProf = findViewById(R.id.nomeProf);
         TVBirthProf = findViewById(R.id.TVBirthProf);
         TVWorkSect = findViewById(R.id.TVWorkSect);
+        _btnSave = (Button)findViewById(R.id.btnGuAddProfData);
+        _btnUpdate = (Button)findViewById(R.id.btnUpAddProfData);
+        _btnDelete = (Button)findViewById(R.id.btnDeAddProfData);
+        openHelper = new DatabaseHelper(this);
+        _btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String nome = nomeProf.getText().toString();
+                String dataNas = TVBirthProf.getText().toString();
+                String sec = TVWorkSect.getText().toString();
+                db = openHelper.getWritableDatabase();
+                insertData(nome, dataNas, sec);
+                Toast.makeText(getApplicationContext(), "Data Added", Toast.LENGTH_LONG).show();
+            }
+        });
 
 
     }
 
-    //CONTINUAÇÃO DO SPINNER
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String text = parent.getItemAtPosition(position).toString();
@@ -90,5 +111,12 @@ public class Add_Professional_Data extends AppCompatActivity  implements Adapter
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+    public void insertData(String nome, String dataNas, String sec){
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(DatabaseHelper.COL2, nome);
+        contentValues.put(DatabaseHelper.COL3, dataNas);
+        contentValues.put(DatabaseHelper.COL4, sec);
+        long id = db.insert(DatabaseHelper.TABLE_NAME2, null, contentValues);
     }
 }
