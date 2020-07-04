@@ -69,12 +69,13 @@ public class Add_Patient_Data extends AppCompatActivity implements AdapterView.O
 
 
         //BUSCAR ID's
-        TIETNomePat = findViewById(R.id.TIETNomePat);
-        TIETDoeCont = findViewById(R.id.TIETDoeCont);
-        TextViewPickDatePatient = findViewById(R.id.TextViewPickDatePatient);
-        _btnSave = findViewById(R.id.btnGuAddPatData);
-        _btnUpdate = findViewById(R.id.btnUpAddPatData);
-        _btnDelete = findViewById(R.id.btnDeAddPatData);
+        TIETid = (TextInputEditText) findViewById(R.id.TIETid);
+        TIETNomePat = (TextInputEditText)findViewById(R.id.TIETNomePat);
+        TIETDoeCont = (TextInputEditText)findViewById(R.id.TIETDoeCont);
+        TextViewPickDatePatient =(TextView)findViewById(R.id.TextViewPickDatePatient);
+        _btnSave = (Button)findViewById(R.id.btnGuAddPatData);
+        _btnUpdate = (Button)findViewById(R.id.btnUpAddPatData);
+        _btnDelete = (Button)findViewById(R.id.btnDeAddPatData);
         openHelper = new DatabaseHelper(this);
         _btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,6 +96,18 @@ public class Add_Patient_Data extends AppCompatActivity implements AdapterView.O
                 String id = TIETid.getText().toString();
                 deleteData(id);
                 Toast.makeText(getApplicationContext(), "Data Deleted", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        _btnUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String nome = TIETNomePat.getText().toString();
+                String dataNas = TextViewPickDatePatient.getText().toString();
+                String doe = TIETDoeCont.getText().toString();
+                db = openHelper.getWritableDatabase();
+                updateData(nome, dataNas, doe);
+                Toast.makeText(getApplicationContext(), "Data Updated", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -121,5 +134,14 @@ public class Add_Patient_Data extends AppCompatActivity implements AdapterView.O
 
     public boolean deleteData(String id){
         return db.delete(DatabaseHelper.TABLE_NAME, DatabaseHelper.COL_1 + "=?", new String[]{id})>0;
+    }
+
+    public boolean updateData(String nome, String dataNas, String doe){
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(DatabaseHelper.COL_2, nome);
+        contentValues.put(DatabaseHelper.COL_3, dataNas);
+        contentValues.put(DatabaseHelper.COL_4, doe);
+        String id = TIETid.getText().toString();
+        return db.update(DatabaseHelper.TABLE_NAME, contentValues, DatabaseHelper.COL_1 +"=?", new String[]{id})>0;
     }
 }
