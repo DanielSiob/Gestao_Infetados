@@ -9,105 +9,137 @@
     android:orientation="vertical"
     tools:context=".Add_Patient_Data">
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/TIETid"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Insert ID" />
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
-    <TextView
-        android:id="@+id/textViewNamePatient"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="25dp"
-        android:text="Name:"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/TIETNomePat"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Insert Name" />
-
-
-    <TextView
-        android:id="@+id/TVDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="25dp"
-        android:text="Date of Birth:"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-    <Button
-        android:id="@+id/btnPickDatePatient"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Pick Date" />
-
-    <TextView
-        android:id="@+id/TextViewPickDatePatient"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:text="" />
-
-    <TextView
-        android:id="@+id/TVDoencas"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="25dp"
-        android:text="Previously Contracted Diseases:"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/TIETDoeCont"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Insert Diseases" />
-
-    <LinearLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_gravity="center_horizontal"
-            android:onClick="saveAddPat"
-            android:padding="5dp">
-        <Button
-            android:id="@+id/btnGuAddPatData"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Insert"/>
-    </LinearLayout>
+            android:orientation="vertical" >
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_gravity="center_horizontal"
-        android:onClick="updateAddPat"
-        android:padding="5dp">
-        <Button
-            android:id="@+id/btnUpAddPatData"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Update"/>
-    </LinearLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/TIETid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Insert ID" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_gravity="center_horizontal"
-        android:onClick="deleteAddPat"
-        android:padding="5dp">
-        <Button
-            android:id="@+id/btnDeAddPatData"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Delete"/>
-    </LinearLayout>
+            <TextView
+                android:id="@+id/textViewNamePatient"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Name:"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textSize="25dp" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/TIETNomePat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Insert Name" />
+
+            <TextView
+                android:id="@+id/TVDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Date of Birth:"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textSize="25dp" />
+
+            <Button
+                android:id="@+id/btnPickDatePatient"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pick Date" />
+
+            <TextView
+                android:id="@+id/TextViewPickDatePatient"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/TVDoencas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Previously Contracted Diseases:"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textSize="25dp" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/TIETDoeCont"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Insert Diseases" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="10dp"
+                android:onClick="saveAddPat"
+                android:padding="5dp">
+
+                <Button
+                    android:id="@+id/btnGuAddPatData"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Insert" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="10dp"
+                android:onClick="updateAddPat"
+                android:padding="5dp">
+
+                <Button
+                    android:id="@+id/btnUpAddPatData"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Update" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="10dp"
+                android:onClick="deleteAddPat"
+                android:padding="5dp">
+
+                <Button
+                    android:id="@+id/btnDeAddPatData"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Delete" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="10dp"
+                android:onClick="verTodosPa"
+                android:padding="5dp">
+
+                <Button
+                    android:id="@+id/btnVAAddPatData"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="View All Patients" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
 
 </LinearLayout>

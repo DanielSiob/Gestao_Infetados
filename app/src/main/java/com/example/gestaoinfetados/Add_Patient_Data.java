@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -140,5 +141,10 @@ public class Add_Patient_Data extends AppCompatActivity implements AdapterView.O
         contentValues.put(DatabaseHelper.COL_4, doe);
         String id = TIETid.getText().toString();
         return db.update(DatabaseHelper.TABLE_NAME, contentValues, DatabaseHelper.COL_1 +"=?", new String[]{id})>0;
+    }
+
+    public void verTodosPa (View view){
+        Intent intentVerTodosPa = new Intent(this, RecyclerViewPacientes.class);
+        startActivity(intentVerTodosPa);
     }
 }
