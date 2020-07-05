@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.content.ContentValues;
-import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
@@ -18,8 +17,6 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.Calendar;
 
@@ -36,8 +33,8 @@ public class Add_Professional_Data extends AppCompatActivity  implements Adapter
 
     Spinner spinner;
 
-    Button _btnSave, _btnUpdate, _btnDelete;
-    SQLiteOpenHelper openHelper;
+    Button _btnSave2, _btnUpdate2, _btnDelete2;
+    SQLiteOpenHelper openHelper2;
     SQLiteDatabase db;
 
 
@@ -79,21 +76,21 @@ public class Add_Professional_Data extends AppCompatActivity  implements Adapter
         spinner.setOnItemSelectedListener(this);
 
         //BUSCAR ID's
-        nomeProf = findViewById(R.id.nomeProf);
-        TVBirthProf = findViewById(R.id.TVBirthProf);
-        TVWorkSect = findViewById(R.id.TVWorkSect);
-        _btnSave = (Button)findViewById(R.id.btnGuAddProfData);
-        _btnUpdate = (Button)findViewById(R.id.btnUpAddProfData);
-        _btnDelete = (Button)findViewById(R.id.btnDeAddProfData);
-        openHelper = new DatabaseHelper(this);
-        _btnSave.setOnClickListener(new View.OnClickListener() {
+        nomeProf = (EditText) findViewById(R.id.nomeProf);
+        TVBirthProf = (TextView) findViewById(R.id.TVBirthProf);
+        TVWorkSect = (TextView) findViewById(R.id.TVWorkSect);
+        _btnSave2 = (Button)findViewById(R.id.btnGuAddProfData);
+        _btnUpdate2 = (Button)findViewById(R.id.btnUpAddProfData);
+        _btnDelete2 = (Button)findViewById(R.id.btnDeAddProfData);
+        openHelper2 = new DatabaseHelper2(this);
+        _btnSave2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String nome = nomeProf.getText().toString();
-                String dataNas = TVBirthProf.getText().toString();
-                String sec = TVWorkSect.getText().toString();
-                db = openHelper.getWritableDatabase();
-                insertData(nome, dataNas, sec);
+                String nomePr = nomeProf.getText().toString();
+                String dataNasPr = TVBirthProf.getText().toString();
+                String secPr = TVWorkSect.getText().toString();
+                db = openHelper2.getWritableDatabase();
+                insertData2(nomePr, dataNasPr, secPr);
                 Toast.makeText(getApplicationContext(), "Data Added", Toast.LENGTH_LONG).show();
             }
         });
@@ -112,11 +109,11 @@ public class Add_Professional_Data extends AppCompatActivity  implements Adapter
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
-    public void insertData(String nome, String dataNas, String sec){
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(DatabaseHelper.COL2, nome);
-        contentValues.put(DatabaseHelper.COL3, dataNas);
-        contentValues.put(DatabaseHelper.COL4, sec);
-        long id = db.insert(DatabaseHelper.TABLE_NAME2, null, contentValues);
+    public void insertData2(String nomePr, String dataNasPr, String secPr){
+        ContentValues contentValues2 = new ContentValues();
+        contentValues2.put(DatabaseHelper2.COL2, nomePr);
+        contentValues2.put(DatabaseHelper2.COL3, dataNasPr);
+        contentValues2.put(DatabaseHelper2.COL4, secPr);
+        long id = db.insert(DatabaseHelper2.TABLE_NAME2, null, contentValues2);
     }
 }
