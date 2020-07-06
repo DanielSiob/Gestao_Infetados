@@ -129,6 +129,7 @@ public class Edit_Patient_Info extends AppCompatActivity implements AdapterView.
 
 
         //BUSCAR ID
+        TIETid = (TextInputEditText) findViewById(R.id.TIETid);
         TextViewPickDateEntHosp = findViewById(R.id.TextViewPickDateEntHosp);
         TVAltaHosp = findViewById(R.id.TVAltaHosp);
         TextViewPickDateDataObi = findViewById(R.id.TextViewPickDateDataObi);
@@ -147,6 +148,27 @@ public class Edit_Patient_Info extends AppCompatActivity implements AdapterView.
                 db = openHelper.getWritableDatabase();
                 insertData(deh, dah, dob, sin);
                 Toast.makeText(getApplicationContext(), "Data Added", Toast.LENGTH_LONG).show();
+            }
+        });
+        _btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                db = openHelper.getWritableDatabase();
+                String id = TIETid.getText().toString();
+                deleteData(id);
+                Toast.makeText(getApplicationContext(), "Data Deleted", Toast.LENGTH_LONG).show();
+            }
+        });
+        _btnUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String deh = TextViewPickDateEntHosp.getText().toString();
+                String dah = TVAltaHosp.getText().toString();
+                String dob = TextViewPickDateDataObi.getText().toString();
+                String sin = TVSin.getText().toString();
+                db = openHelper.getWritableDatabase();
+                updateData(deh, dah, dob, sin);
+                Toast.makeText(getApplicationContext(), "Data Updated", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -172,5 +194,17 @@ public class Edit_Patient_Info extends AppCompatActivity implements AdapterView.
         contentValues.put(DatabaseHelper.COL_7, dob);
         contentValues.put(DatabaseHelper.COL_8, sin);
         long id = db.insert(DatabaseHelper.TABLE_NAME, null, contentValues);
+    }
+    public boolean deleteData(String id){
+        return db.delete(DatabaseHelper.TABLE_NAME, DatabaseHelper.COL_1 + "=?", new String[]{id})>0;
+    }
+    public boolean updateData(String deh, String dah, String dob, String sin){
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(DatabaseHelper.COL_5, deh);
+        contentValues.put(DatabaseHelper.COL_6, dah);
+        contentValues.put(DatabaseHelper.COL_7, dob);
+        contentValues.put(DatabaseHelper.COL_8, sin);
+        String id = TIETid.getText().toString();
+        return db.update(DatabaseHelper.TABLE_NAME, contentValues, DatabaseHelper.COL_1 +"=?", new String[]{id})>0;
     }
 }

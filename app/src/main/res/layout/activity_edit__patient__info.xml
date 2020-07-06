@@ -9,138 +9,154 @@
     tools:context=".Edit_Patient_Info">
 
 
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/TIETid"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Insert ID" />
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
-    <TextView
-        android:id="@+id/TVeh"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="25dp"
-        android:text="Date of Hospital Entry:"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-    <Button
-        android:id="@+id/btnPickDateEntHosp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Pick Date"/>
-
-    <TextView
-        android:id="@+id/TextViewPickDateEntHosp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:text=""/>
-
-    <TextView
-        android:id="@+id/TVah"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Date of Hospital Discharge:"
-        android:textSize="25dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-    <Button
-        android:id="@+id/btnPickDateAltaHosp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Pick Date"/>
-
-    <TextView
-        android:id="@+id/TVAltaHosp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:text=""/>
-
-    <TextView
-        android:id="@+id/TVDataObi"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="25dp"
-        android:text="Date of Death:"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-    <Button
-        android:id="@+id/btnPickDateDataObi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Pick Date"/>
-
-    <TextView
-        android:id="@+id/TextViewPickDateDataObi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:text=""/>
-
-    <TextView
-        android:id="@+id/textViewSin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="25dp"
-        android:text="Symptoms:"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-    <Spinner
-        android:id="@+id/spinner2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"></Spinner>
-
-    <TextView
-        android:id="@+id/TVSin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:text=""/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_gravity="center_horizontal"
-        android:onClick="saveEditPat"
-        android:padding="5dp">
-        <Button
-            android:id="@+id/btnGuEditPatData"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Insert"/>
-    </LinearLayout>
+            android:orientation="vertical" >
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_gravity="center_horizontal"
-        android:onClick="updateEditPat"
-        android:padding="5dp">
-        <Button
-            android:id="@+id/btnUpEditPatData"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Update"/>
-    </LinearLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/TIETid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Insert ID" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_gravity="center_horizontal"
-        android:onClick="deleteEditPat"
-        android:padding="5dp">
-        <Button
-            android:id="@+id/btnDeEditPatData"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Delete"/>
-    </LinearLayout>
+            <TextView
+                android:id="@+id/TVeh"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Date of Hospital Entry:"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textSize="25dp" />
+
+            <Button
+                android:id="@+id/btnPickDateEntHosp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pick Date" />
+
+            <TextView
+                android:id="@+id/TextViewPickDateEntHosp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/TVah"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Date of Hospital Discharge:"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textSize="25dp" />
+
+            <Button
+                android:id="@+id/btnPickDateAltaHosp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pick Date" />
+
+            <TextView
+                android:id="@+id/TVAltaHosp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/TVDataObi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Date of Death:"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textSize="25dp" />
+
+            <Button
+                android:id="@+id/btnPickDateDataObi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pick Date" />
+
+            <TextView
+                android:id="@+id/TextViewPickDateDataObi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/textViewSin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Symptoms:"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textSize="25dp" />
+
+            <Spinner
+                android:id="@+id/spinner2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></Spinner>
+
+            <TextView
+                android:id="@+id/TVSin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="20dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="10dp"
+                android:onClick="saveEditPat"
+                android:padding="5dp">
+
+                <Button
+                    android:id="@+id/btnGuEditPatData"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Insert" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="10dp"
+                android:onClick="updateEditPat"
+                android:padding="5dp">
+
+                <Button
+                    android:id="@+id/btnUpEditPatData"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Update" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="10dp"
+                android:onClick="deleteEditPat"
+                android:padding="5dp">
+
+                <Button
+                    android:id="@+id/btnDeEditPatData"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Delete" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
 </LinearLayout>
