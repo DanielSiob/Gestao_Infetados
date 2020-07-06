@@ -18,6 +18,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 import java.util.Calendar;
 
 public class Add_Professional_Data extends AppCompatActivity  implements AdapterView.OnItemSelectedListener {
@@ -28,13 +30,13 @@ public class Add_Professional_Data extends AppCompatActivity  implements Adapter
     Calendar c;
     DatePickerDialog dpd;
 
-    EditText nomeProf;
+    TextInputEditText TIETNomeProf;
     TextView TVBirthProf, TVWorkSect;
 
     Spinner spinner;
 
     Button _btnSave2, _btnUpdate2, _btnDelete2;
-    SQLiteOpenHelper openHelper2;
+    SQLiteOpenHelper openHelper;
     SQLiteDatabase db;
 
 
@@ -76,20 +78,20 @@ public class Add_Professional_Data extends AppCompatActivity  implements Adapter
         spinner.setOnItemSelectedListener(this);
 
         //BUSCAR ID's
-        nomeProf = (EditText) findViewById(R.id.nomeProf);
+        TIETNomeProf = (TextInputEditText) findViewById(R.id.TIETNomeProf);
         TVBirthProf = (TextView) findViewById(R.id.TVBirthProf);
         TVWorkSect = (TextView) findViewById(R.id.TVWorkSect);
         _btnSave2 = (Button)findViewById(R.id.btnGuAddProfData);
         _btnUpdate2 = (Button)findViewById(R.id.btnUpAddProfData);
         _btnDelete2 = (Button)findViewById(R.id.btnDeAddProfData);
-        openHelper2 = new DatabaseHelper2(this);
+        openHelper = new DatabaseHelper2(this);
         _btnSave2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String nomePr = nomeProf.getText().toString();
+                String nomePr = TIETNomeProf.getText().toString();
                 String dataNasPr = TVBirthProf.getText().toString();
                 String secPr = TVWorkSect.getText().toString();
-                db = openHelper2.getWritableDatabase();
+                db = openHelper.getWritableDatabase();
                 insertData2(nomePr, dataNasPr, secPr);
                 Toast.makeText(getApplicationContext(), "Data Added", Toast.LENGTH_LONG).show();
             }
